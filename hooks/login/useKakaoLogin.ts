@@ -1,10 +1,8 @@
+import { useNavigation } from '@react-navigation/core';
 import { KAKAO_CLIENT_KEY } from '../../constants/keys/login';
 
-type UseKakaoLoginProps = {
-  goBack: () => void;
-};
-
-export const useKakaoLogin = ({ goBack }: UseKakaoLoginProps) => {
+export const useKakaoLogin = () => {
+  const navigation = useNavigation();
   const INJECTED_JAVASCRIPT = `(function() {
     if (window.document.getElementsByTagName("pre").length > 0) {
       window.ReactNativeWebView.postMessage(
@@ -26,7 +24,7 @@ export const useKakaoLogin = ({ goBack }: UseKakaoLoginProps) => {
     } catch (error) {
       alert('로그인 오류가 발생했습니다. 다시 시도하세요');
     } finally {
-      goBack();
+      navigation.navigate('Login');
     }
   };
 

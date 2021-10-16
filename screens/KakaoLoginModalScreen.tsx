@@ -3,13 +3,12 @@ import WebView from 'react-native-webview';
 import { useKakaoLogin } from '../hooks/login/useKakaoLogin';
 import { View } from '../components/Themed';
 import type { RootTabScreenProps } from '../types';
+import React from 'react';
 
 export default function KakaoLoginModalScreen({
   navigation,
 }: RootTabScreenProps<'KaKaoLoginModal'>) {
-  const { uri, INJECTED_JAVASCRIPT, handleMessage } = useKakaoLogin({
-    goBack: () => navigation.goBack(),
-  });
+  const { uri, INJECTED_JAVASCRIPT, handleMessage } = useKakaoLogin();
 
   return (
     <KakaoLoginModalView>

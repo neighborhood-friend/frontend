@@ -10,7 +10,7 @@ export default function LoginScreen({ navigation }: RootTabScreenProps<'Login'>)
   
   return (
     <LoginView>
-      <KakaoLoginButton openModal={openModal} />
+      <KakaoLoginButton />
     </LoginView>
   );
 }
