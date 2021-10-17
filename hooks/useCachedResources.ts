@@ -1,4 +1,3 @@
-import { FontAwesome } from '@expo/vector-icons';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import * as React from 'react';
@@ -14,8 +13,9 @@ export default function useCachedResources() {
 
         // Load fonts
         await Font.loadAsync({
-          ...FontAwesome.font,
-          'space-mono': require('../assets/fonts/SpaceMono-Regular.ttf'),
+          'noto-sans-bold': require('../assets/fonts/NotoSansKR-Bold.otf'),
+          'noto-sans-medium': require('../assets/fonts/NotoSansKR-Medium.otf'),
+          'noto-sans-regular': require('../assets/fonts/NotoSansKR-Regular.otf'),
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service

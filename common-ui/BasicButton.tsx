@@ -2,7 +2,7 @@ import styled from '@emotion/native';
 import React from 'react';
 import { UI_COLORS } from './UiColors';
 import { Kind } from './Kind';
-import { FONT_SIZE } from './Font';
+import { Body1Bold } from './StyledText';
 
 const ButtonColors = {
   [Kind.Primary]: UI_COLORS.keyGreen,
@@ -18,7 +18,7 @@ type BasicButtonProps = {
 export const BasicButton = ({ onPress, kind, text }: BasicButtonProps) => {
   return (
     <ButtonBox onPress={onPress} fill={ButtonColors[kind]}>
-      <ButtonText>{text}</ButtonText>
+      <Body1Bold>{text}</Body1Bold>
     </ButtonBox>
   );
 };
@@ -28,11 +28,4 @@ const ButtonBox = styled.Pressable<{ fill: string }>`
   width: 100%;
   justify-content: center;
   align-items: center;
-`;
-
-const ButtonText = styled.Text`
-  color: ${UI_COLORS.white};
-  line-height: 40px;
-  font-weight: bold;
-  font-size: ${FONT_SIZE.body}
 `;
