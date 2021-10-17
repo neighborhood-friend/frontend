@@ -5,9 +5,7 @@ import { View } from '../components/Themed';
 import type { RootTabScreenProps } from '../types';
 import React from 'react';
 
-export default function KakaoLoginModalScreen({
-  navigation,
-}: RootTabScreenProps<'KaKaoLoginModal'>) {
+export default function KakaoLoginModalScreen() {
   const { uri, INJECTED_JAVASCRIPT, handleMessage } = useKakaoLogin();
 
   return (

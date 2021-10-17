@@ -55,7 +55,7 @@ const isLoggedIn = false;
 function RootNavigator() {
   return (
     <Stack.Navigator
-      initialRouteName={isLoggedIn ? 'Root' : 'Login'}
+      initialRouteName='Login'
       screenOptions={{ headerBackTitleVisible: true }}
     >
       <Stack.Screen

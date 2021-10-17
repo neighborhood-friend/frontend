@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/core';
 import { KAKAO_CLIENT_KEY } from '../../constants/keys/login';
 
@@ -16,11 +17,10 @@ export const useKakaoLogin = () => {
   const handleMessage = async (event: any) => {
     try {
       const result = await JSON.parse(event.nativeEvent.data);
-      console.log('if any message exist >>> ', result);
-      if (result.status !== 200) {
+      if (!result) {
         throw Error();
       }
-      // TODO: 토큰을 전달 받아서 AsyncStorage에 저장
+      AsyncStorage.setItem('kakaoToken', result.access_token);
     } catch (error) {
       alert('로그인 오류가 발생했습니다. 다시 시도하세요');
     } finally {

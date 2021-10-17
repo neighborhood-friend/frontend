@@ -28,7 +28,7 @@ const linking: LinkingOptions<RootStackParamList> = {
           },
         },
       },
-      KaKaoLoginModal: 'kaKaoLogin',
+      KaKaoLoginModal: 'kakaoLogin',
       NotFound: '*',
     },
   },
