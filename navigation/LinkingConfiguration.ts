@@ -14,6 +14,7 @@ const linking: LinkingOptions<RootStackParamList> = {
   config: {
     screens: {
       Login: 'login',
+      InitialProfile: 'initialProfile',
       Root: {
         screens: {
           TabOne: {

@@ -17,6 +17,7 @@ export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   Login: undefined;
   KaKaoLoginModal: undefined;
+  InitialProfile: undefined;
   NotFound: undefined;
 };
 
@@ -28,6 +29,7 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
 export type RootTabParamList = {
   Login: undefined;
   KaKaoLoginModal: undefined;
+  InitialProfile: undefined;
   TabOne: undefined;
   TabTwo: undefined;
 };

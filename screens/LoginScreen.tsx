@@ -8,7 +8,7 @@ import type { RootTabScreenProps } from '../types';
 export default function LoginScreen({
   navigation, route
 }: RootTabScreenProps<'Login'>) {
-  const { authorized, getLoggedIn } = useAuthenticationContext();
+  const { authorized, user, getLoggedIn } = useAuthenticationContext();
 
   useEffect(() => {
     getLoggedIn();
@@ -16,8 +16,9 @@ export default function LoginScreen({
 
   useEffect(() => {
     if (authorized) {
-      navigation.navigate('Root');
-      navigation.reset({ index: 0, routes: [{ name: 'Root' }] });
+      const nextPage = user.nickname ? 'Root' : 'InitialProfile';
+      navigation.navigate(nextPage);
+      navigation.reset({ index: 0, routes: [{ name: nextPage }] });
     }
   }, [authorized]);
 
@@ -29,7 +30,7 @@ export default function LoginScreen({
 }
 
 const LoginView = styled(View)`
-  padding: 25px;
+  padding: 20px;
   flex: 1;
   align-items: center;
   justify-content: center;
