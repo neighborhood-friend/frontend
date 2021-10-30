@@ -1,13 +1,13 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
-import { UI_COLORS } from '../UiColors';
+import { UiColors } from '../UiColors';
 
 type CameraProps = {
   size?: number;
   fill?: string;
 }
 
-export const Camera = ({ size = 24, fill = UI_COLORS.darkGray }: CameraProps) => (
+export const Camera = ({ size = 24, fill = UiColors.gray[500] }: CameraProps) => (
   <Svg viewBox="0 0 24 24" fill="none" width={size} height={size}>
     <Path
       d="M12 15.2C13.7673 15.2 15.2 13.7674 15.2 12C15.2 10.2327 13.7673 8.80005 12 8.80005C10.2327 8.80005 8.8 10.2327 8.8 12C8.8 13.7674 10.2327 15.2 12 15.2Z"
