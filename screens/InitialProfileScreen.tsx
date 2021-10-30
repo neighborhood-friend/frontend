@@ -2,15 +2,14 @@ import styled from '@emotion/native';
 import React from 'react';
 import { Screen } from '../common-ui/Screen';
 import { H2 } from '../common-ui/StyledText';
-import { Image, Pressable, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { UiColors } from '../common-ui/UiColors';
 import { TextInput } from 'react-native-gesture-handler';
 import { Text } from 'react-native';
-import { Camera } from '../common-ui/Icons/Camera';
 import { BasicButton } from '../common-ui/BasicButton';
 import { Kind } from '../common-ui/Kind';
+import { InitialProfileImage } from '../components/InitialProfile';
 
-const DEFAULT_PROFILE = '../assets/images/default-profile-image.png';
 const TITLE = `닉네임을 설정하고\n동네친구를 시작해보세요`;
 
 export default function InitialProfileScreen() {
@@ -18,12 +17,7 @@ export default function InitialProfileScreen() {
     <Screen verticalAlignment="space-around">
       <Profile>
         <H2>{TITLE}</H2>
-        <ProfileImageSection>
-          <ProfileImage source={require(DEFAULT_PROFILE)} />
-          <CameraButton>
-            <Camera size={20} />
-          </CameraButton>
-        </ProfileImageSection>
+        <InitialProfileImage />
         <NicknameSection>
           <TextInput />
           <Pressable>
@@ -38,35 +32,6 @@ export default function InitialProfileScreen() {
 
 const Profile = styled(View)`
   width: 100%;
-`;
-
-const ProfileImageSection = styled(View)`
-  width: 120px;
-  height: 120px;
-  align-self: center;
-  margin-top: 54px;
-  background: transparent;
-`;
-
-const ProfileImage = styled(Image)`
-  width: 120px;
-  height: 120px;
-  borderRadius: 60px;
-  align-self: center;
-`;
-
-const CameraButton = styled(Pressable)`
-  width: 40px;
-  height: 40px;
-  background: white;
-  borderRadius: 20px;
-  borderWidth: 1px;
-  borderColor: ${UiColors.gray[300]};
-  position: absolute;
-  bottom: 0;
-  right: -4px;
-  justifyContent: center;
-  alignItems: center;
 `;
 
 const NicknameSection = styled(View)`
