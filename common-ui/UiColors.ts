@@ -1,5 +1,22 @@
-export const UI_COLORS = {
-  keyGreen: '#11CB93',
-  darkGray: '#898989',
-  white: '#fff'
-}
+export const UiColors = {
+  green: {
+    '100': '#E9FFF8',
+    '200': '#CFF8EB',
+    '300': '#7AF8D2',
+    '400': '#1DE1A6',
+    '500': '#29D2A0',
+    '600': '#268D6E',
+    '700': '#08694C',
+  },
+  gray: {
+    '100': '#F6F6F6',
+    '200': '#E9EAED',
+    '300': '#DCDEE3',
+    '400': '#A9AEB6',
+    '500': '#808386',
+    '600': '#5E5E5E',
+    '700': '##3A3A3A',
+  },
+  white: '#fff',
+  black: '#000',
+};
