@@ -3,7 +3,7 @@ import React from 'react';
 import { Screen } from '../common-ui/Screen';
 import { H2 } from '../common-ui/StyledText';
 import { Image, Pressable, View } from 'react-native';
-import { UI_COLORS } from '../common-ui/UiColors';
+import { UiColors } from '../common-ui/UiColors';
 import { TextInput } from 'react-native-gesture-handler';
 import { Text } from 'react-native';
 import { Camera } from '../common-ui/Icons/Camera';
@@ -31,7 +31,7 @@ export default function InitialProfileScreen() {
           </Pressable>
         </NicknameSection>
       </Profile>
-      <BasicButton kind={Kind.Primary} text="시작하기" />
+      <BasicButton kind={Kind.Primary} full text="시작하기" />
     </Screen>
   );
 }
@@ -61,7 +61,7 @@ const CameraButton = styled(Pressable)`
   background: white;
   borderRadius: 20px;
   borderWidth: 1px;
-  borderColor: ${UI_COLORS.darkGray};
+  borderColor: ${UiColors.gray[300]};
   position: absolute;
   bottom: 0;
   right: -4px;
@@ -74,6 +74,6 @@ const NicknameSection = styled(View)`
   height: 40px;
   margin-top: 48px;
   borderBottomWidth: 1px;
-  borderColor: ${UI_COLORS.darkGray};
+  borderColor: ${UiColors.gray[300]};
   flex-direction: row;
 `;
