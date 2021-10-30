@@ -27,6 +27,7 @@ import {
   RootTabScreenProps,
 } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import InitialProfileScreen from '../screens/InitialProfileScreen';
 
 export default function Navigation({
   colorScheme,
@@ -61,6 +62,11 @@ function RootNavigator() {
       <Stack.Screen
         name="Login"
         component={LoginScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="InitialProfile"
+        component={InitialProfileScreen}
         options={{ headerShown: false }}
       />
       <Stack.Screen

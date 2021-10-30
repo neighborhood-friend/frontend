@@ -10,7 +10,7 @@ const ButtonColors = {
 };
 
 type BasicButtonProps = {
-  onPress: () => any;
+  onPress?: () => any;
   kind: Kind;
   text: string;
 };

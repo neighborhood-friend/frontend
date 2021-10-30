@@ -3,7 +3,7 @@ import { FONT_STYLE } from './FontStyle';
 import { Text, TextProps } from '../components/Themed';
 
 export const MonoText = (props: TextProps) => (
-  <Text {...props} style={[props.style, { fontFamily: 'noto-sans' }]} />
+  <Text {...props} style={[props.style, { fontFamily: 'noto-sans-regular' }]} />
 );
 
 export const H1 = (props: TextProps) => (
