@@ -6,10 +6,10 @@ import { PhotoFinderButton } from './PhotoFinderButton';
 import { useInitialProfileImage } from './useInitialProfileImage';
 
 export const InitialProfileImage = () => {
-  const { openGallery } = useInitialProfileImage();
+  const { openGallery, image } = useInitialProfileImage();
   return (
     <Section>
-      <ProfileThumbnail />
+      <ProfileThumbnail uri={image} />
       <PhotoFinderButton openGallery={openGallery} />
     </Section>
   )

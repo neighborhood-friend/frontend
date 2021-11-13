@@ -5,11 +5,11 @@ import { Image } from 'react-native';
 const DEFAULT_PROFILE = '../assets/images/default-profile-image.png';
 
 type ProfileThumbnailProps = {
-  imageUrl?: string;
+  uri: string | null;
 };
 
-export const ProfileThumbnail = ({ imageUrl }: ProfileThumbnailProps) => (
-  <ProfileImage source={imageUrl ?? require(DEFAULT_PROFILE)} />
+export const ProfileThumbnail = ({ uri }: ProfileThumbnailProps) => (
+  <ProfileImage source={uri ? { uri } : require(DEFAULT_PROFILE)} />
 );
 
 const ProfileImage = styled(Image)`
