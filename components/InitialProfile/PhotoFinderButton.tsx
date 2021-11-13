@@ -4,8 +4,12 @@ import { Pressable } from 'react-native';
 import { Camera } from '../../common-ui/Icons';
 import { UiColors } from '../../common-ui/UiColors';
 
-export const PhotoFinderButton = () => (
-  <Wrapper>
+type PhotoFinderButtonProps = {
+  openGallery: () => Promise<void>
+}
+
+export const PhotoFinderButton = ({ openGallery }: PhotoFinderButtonProps) => (
+  <Wrapper onPress={openGallery}>
     <Camera size={20} />
   </Wrapper>
 );
