@@ -5,20 +5,41 @@ import { Kind } from './Kind';
 import { Body1Bold } from './StyledText';
 
 type ButtonColorsType = {
-  fill: string;
-  font: string;
-  border?: string;
+  [key: string]: {
+    fill?: string;
+    font?: string;
+    border?: string;
+  }
 };
 
 const ButtonColors: { [key in Kind]: ButtonColorsType } = {
   [Kind.Primary]: {
-    fill: UiColors.green[400],
-    font: UiColors.white,
+    default: {
+      font: UiColors.white,
+      fill: UiColors.green[400],
+    },
+    disabled: {
+      font: UiColors.white,
+      fill: UiColors.green[200],
+    },
   },
   [Kind.Outline]: {
-    fill: 'transparent',
-    font: UiColors.black,
-    border: UiColors.gray[300],
+    common: {
+      fill: 'transparent',
+      border: UiColors.gray[300],
+    },
+    get default() {
+      return {
+        ...this.common,
+        font: UiColors.black,
+      }
+    },
+    get disabled() {
+      return {
+        ...this.common,
+        font: UiColors.gray[300],
+      }
+    }
   },
 };
 
@@ -28,6 +49,7 @@ type BasicButtonProps = {
   text: string;
   full?: boolean;
   round?: boolean;
+  disabled?: boolean;
 };
 
 export const BasicButton = ({
@@ -36,22 +58,25 @@ export const BasicButton = ({
   text,
   full = false,
   round = false,
+  disabled = false,
 }: BasicButtonProps) => {
+  const status = disabled ? 'disabled' : 'default';
   return (
     <ButtonBox
       onPress={onPress}
-      fill={ButtonColors[kind].fill}
+      disabled={disabled}
+      fill={ButtonColors[kind][status].fill}
       full={full}
       round={round}
-      border={ButtonColors[kind]?.border}
+      border={ButtonColors[kind][status]?.border}
     >
-      <Body1Bold style={{ color: ButtonColors[kind].font }}>{text}</Body1Bold>
+      <Body1Bold style={{ color: ButtonColors[kind][status].font }}>{text}</Body1Bold>
     </ButtonBox>
   );
 };
 
 type ButtonBoxProps = {
-  fill: string;
+  fill?: string;
   border?: string;
   full: boolean;
   round: boolean;
